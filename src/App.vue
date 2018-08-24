@@ -1,29 +1,59 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <div id="app" class="tile is-ancester">
+        <div class="tile is-4 is-parent is-vertical">
+            <div class="tile is-child">
+                <Welcome/>
+            </div>
+            <div class="tile is-child"></div>
+        </div>
+        <div class="tile is-4 is-parent is-vertical">
+            <div class="tile is-child"></div>
+            <div class="tile is-child"></div>
+        </div>
+        <div class="tile is-4 is-parent is-vertical">
+            <div class="tile is-child"></div>
+            <div class="tile is-child"></div>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from "vue-property-decorator";
+
+import Welcome from "./components/Welcome.vue";
 
 @Component({
-  components: {
-    HelloWorld,
-  },
+    components: {
+        Welcome
+    }
 })
-export default class App extends Vue {}
+export default class App extends Vue {  }
 </script>
 
 <style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+#app
+{
+    height: 100%;
+
+    color: #2c3e50;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .tile.is-parent {
+        padding: 0;
+
+        .tile.is-child {
+            height: 50%;
+            overflow: auto;
+
+            padding: 1rem;
+            border: 1px solid #ddd;
+            margin: 0 !important;
+        }
+    }
 }
 </style>
